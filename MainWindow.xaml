@@ -1,0 +1,60 @@
+﻿<Window x:Name="window" x:Class="TN_Translator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TN_Translator"
+        xmlns:tb="clr-namespace:H.NotifyIcon;assembly=H.NotifyIcon.Wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="400" Width="500"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Topmost="True"
+        Icon="/TN-Translator-Icon.ico"
+        ResizeMode="NoResize"
+        KeyDown="Window_KeyDown" RenderTransformOrigin="0.5,0.5">
+    <Window.RenderTransform>
+        <TransformGroup>
+            <ScaleTransform/>
+            <SkewTransform/>
+            <RotateTransform/>
+            <TranslateTransform/>
+        </TransformGroup>
+    </Window.RenderTransform>
+    <Grid Background="#FF252525">
+        <tb:TaskbarIcon x:Name="TrayIcon" IconSource="/TN-Translator-Icon.ico" ToolTipText="TN Translator" TrayLeftMouseDown="ShowWindow">
+            <tb:TaskbarIcon.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="打开" Click="ShowWindow"/>
+                    <MenuItem Header="退出" Click="CloseWindow"/>
+                </ContextMenu>
+            </tb:TaskbarIcon.ContextMenu>
+        </tb:TaskbarIcon>
+        <Canvas Background="#FF202020" Margin="0,0,0,345" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+            <Image HorizontalAlignment="Left" Height="35" Margin="10,10,0,0" VerticalAlignment="Top" Width="35" Source="/TN-Translator-Logo.png" MouseRightButtonDown="Window_MouseRightDownIcon"/>
+            <Label Content="TN翻译器" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontSize="15" Canvas.Left="45" Canvas.Top="13"/>
+            <CheckBox x:Name="SobCheck" Content="开机自启动" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="212" Canvas.Top="20" Foreground="White" Checked="AutoStartCheckBox_Checked" Unchecked="AutoStartCheckBox_Unchecked"/>
+            <Button x:Name="AppInfo" ToolTip="应用信息" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Black" BorderBrush="White" Foreground="White" FontSize="25" Width="36" Height="36" Canvas.Left="414" Canvas.Top="10">
+                <Image HorizontalAlignment="Center" Height="25" VerticalAlignment="Top" Width="25" Source="/Flag.png"/>
+            </Button>
+            <Button x:Name="CloseButton" Content="✕" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Black" BorderBrush="White" Foreground="White" FontSize="25" Width="35" Height="36" Canvas.Left="455" Canvas.Top="10"/>
+        </Canvas>
+        <Label Content="翻译至" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontSize="25" Canvas.Left="45" Canvas.Top="13" Margin="160,64,0,0"/>
+        <ComboBox x:Name="TransLangList" Margin="250,72,150,303" SelectionChanged="ChangeChoose">
+            <ComboBoxItem Content="中文" IsSelected="True"/>
+            <ComboBoxItem Content="英文"/>
+        </ComboBox>
+        <TextBox x:Name="InputText" HorizontalAlignment="Left" Margin="10,142,0,0" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" VerticalAlignment="Top" Width="200" Background="Black" Foreground="White" BorderBrush="White" Height="248" FontSize="15"/>
+        <Button x:Name="ToTrans" ToolTip="翻译" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Black" BorderBrush="White" Foreground="White" FontSize="25" Width="36" Height="36" Canvas.Left="455" Canvas.Top="10" Margin="0,173,0,0">
+            <Image HorizontalAlignment="Center" Height="25" VerticalAlignment="Top" Width="25" Source="/translate.png"/>
+        </Button>
+        <TextBox x:Name="TransText" IsReadOnly="True" HorizontalAlignment="Left" Margin="290,142,0,0" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" VerticalAlignment="Top" Width="200" Background="Black" Foreground="White" BorderBrush="White" Height="248" FontSize="15"/>
+        <Button x:Name="CopyTrans" ToolTip="复制" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Black" BorderBrush="White" Foreground="White" FontSize="25" Width="36" Height="36" Canvas.Left="455" Canvas.Top="10" Margin="0,214,0,0">
+            <Image HorizontalAlignment="Center" Height="25" VerticalAlignment="Top" Width="25" Source="/copy.png"/>
+        </Button>
+        <Button x:Name="CleanButton" ToolTip="清空" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Black" BorderBrush="White" Foreground="White" FontSize="25" Width="36" Height="36" Margin="0,255,0,0">
+            <Image HorizontalAlignment="Center" Height="25" VerticalAlignment="Top" Width="25" Source="/Clean.png"/>
+        </Button>
+    </Grid>
+</Window>
