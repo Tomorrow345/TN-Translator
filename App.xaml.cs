@@ -9,6 +9,15 @@ namespace TN_Translator
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnExit(ExitEventArgs e)
+        {
+            var notifyIcons = System.Windows.Application.Current.Windows.OfType<MainWindow>();
+            foreach (var window in notifyIcons)
+            {
+                window.TrayIcon?.Dispose();
+            }
+            base.OnExit(e);
+        }
     }
 
 }

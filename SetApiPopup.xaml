@@ -1,0 +1,18 @@
+﻿<Window x:Class="TN_Translator.SetApiPopup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TN_Translator"
+        mc:Ignorable="d"
+        Title="配置AI API" Height="120" Width="520"
+        Topmost="True"
+        ResizeMode="NoResize"
+        WindowStyle="None">
+    <Grid Background="#FF252525">
+        <Canvas Background="#FF202020" VerticalAlignment="Top" Margin="0" Height="56" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+            <Button x:Name="CloseButton" Content="✕" HorizontalAlignment="Right" VerticalAlignment="Top" Background="Black" Foreground="White" BorderBrush="White" FontSize="25" Width="36" Height="36" Canvas.Left="474" Canvas.Top="10"/>
+        </Canvas>
+        <Label Content="配置你的API Key以正常使用TNT Ranslator" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" FontSize="25" Foreground="White"/>
+    </Grid>
+</Window>

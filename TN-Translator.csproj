@@ -7,13 +7,14 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>TN-Translator-Icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Clean.png" />
+    <None Remove="code.png" />
     <None Remove="copy.png" />
     <None Remove="Flag.png" />
-    <None Remove="TN-Translator-Icon.ico" />
     <None Remove="TN-Translator-Logo.png" />
     <None Remove="translate.png" />
   </ItemGroup>
@@ -24,6 +25,7 @@
 
   <ItemGroup>
     <Resource Include="Clean.png" />
+    <Resource Include="code.png" />
     <Resource Include="copy.png" />
     <Resource Include="Flag.png" />
     <Resource Include="TN-Translator-Icon.ico" />
